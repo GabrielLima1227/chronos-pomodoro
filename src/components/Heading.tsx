@@ -1,9 +1,11 @@
 import style from "./Heading.module.css";
 
-export function Heading() {
+export function Heading(props) {
+    // Log all received properties 
+    console.log(props);
     return (
         <>
-            <h1 className={style.heading}>Welcome to Chronos Pomodoro!</h1>
+            <h1 className={style.heading}>{props.children}</h1>
         </>
     )
 }

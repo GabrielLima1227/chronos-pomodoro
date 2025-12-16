@@ -7,7 +7,11 @@ export function App() {
 
     return (
         <>
-            <Heading/>
+            // Property Passing Example
+            <Heading attr={123} attr2="String"> 
+                // Children Passing Example
+                Welcome to Chronos Pomodoro!
+            </Heading>
             <p>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium
             consectetur dolores aspernatur aliquam aliquid, numquam quidem fugit
