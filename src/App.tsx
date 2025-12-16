@@ -7,9 +7,9 @@ export function App() {
 
     return (
         <>
-            // Property Passing Example
+            {/*Property Passing Example*/}
             <Heading attr={123} attr2="String"> 
-                // Children Passing Example
+                {/*Children Passing Example*/}
                 Welcome to Chronos Pomodoro!
             </Heading>
             <p>
