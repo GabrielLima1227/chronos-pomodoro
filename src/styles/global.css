@@ -1,0 +1,7 @@
+body{
+    background-color: lightblue;
+    font: 1.5rem Arial, sans-serif;
+}
+h1{
+    color: var(--primary-color);
+}
