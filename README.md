@@ -1,73 +1,110 @@
-# React + TypeScript + Vite
+# ⏱️ Pomodoro Timer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é um **aplicativo web de Pomodoro** desenvolvido com **TypeScript**, **React** e **Vite**. O projeto foi criado com o objetivo de estudo e prática, aplicando conceitos modernos de desenvolvimento front-end enquanto constrói uma ferramenta real de produtividade.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🎯 Objetivo do Projeto
 
-## React Compiler
+Os principais objetivos deste projeto são:
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+* Praticar **React** com **TypeScript**
+* Compreender melhor a arquitetura baseada em componentes
+* Trabalhar com **hooks** e gerenciamento de estado
+* Melhorar a organização de projetos front-end
+* Construir uma aplicação funcional do zero
 
-## Expanding the ESLint configuration
+Este é principalmente um **projeto de estudos**.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🚀 Tecnologias Utilizadas
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+* **TypeScript** – tipagem estática para maior segurança e produtividade
+* **React** – biblioteca para construção de interfaces
+* **Vite** – ferramenta de build rápida e servidor de desenvolvimento
+* **CSS** – estilização da aplicação
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+## ⚙️ Funcionalidades
+
+* Temporizador baseado na técnica Pomodoro
+* Iniciar, pausar e resetar o timer
+* Ciclos de foco e descanso
+* Interface simples e limpa
+
+> Novas funcionalidades podem ser adicionadas conforme o projeto evolui.
+
+---
+
+## 📂 Estrutura do Projeto (exemplo)
+
+```text
+pomodoro-app/
+├── src/
+│   ├── components/
+│   ├── pages/
+│   ├── styles/
+│   ├── hooks/
+│   └── main.tsx
+├── public/
+├── index.html
+├── package.json
+└── README.md
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## ▶️ Executando o Projeto Localmente
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. Clone o repositório:
+
+```bash
+git clone <url-do-repositorio>
 ```
+
+2. Instale as dependências:
+
+```bash
+npm install
+```
+
+3. Inicie o servidor de desenvolvimento:
+
+```bash
+npm run dev
+```
+
+4. Acesse no navegador:
+
+```text
+http://localhost:5173
+```
+
+---
+
+## 📌 Observações
+
+* O projeto não tem foco em produção
+* O código pode ser refatorado conforme o aprendizado evolui
+* Boas práticas são aplicadas de forma progressiva
+
+---
+
+## 📚 Melhorias Futuras
+
+* Configuração personalizada de tempo de foco e pausa
+* Notificações sonoras
+* Tema claro / escuro
+* Persistência do estado do timer (localStorage)
+
+---
+
+## 👤 Autor
+
+**Gabriel de Lima Sousa**
+
+---
+
+⏳ *Aumentando a produtividade enquanto aprende React e TypeScript.*
