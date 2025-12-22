@@ -1,34 +1,35 @@
 import { Logo } from './components/Logo';
 import { Menu } from './components/Menu';
 import { Cycles } from './components/Cycles';
-import { Footer } from './components/Footer'; 
-import { PlayCircleIcon} from 'lucide-react';
+import { Footer } from './components/Footer';
+import { PlayCircleIcon } from 'lucide-react';
+import { Heading } from './components/Heading';
 import { Container } from './components/Container';
 import { CountDown } from './components/CountDown';
 import { DefaultInput } from './components/Defaultinput';
 import { DefaultButton } from './components/DefaultButton';
 
+// React Hooks
+import { useState } from 'react';
+
 import './styles/theme.css';
 import './styles/global.css';
-import { Heading } from './components/Heading';
-
 
 export function App() {
-    let numero = 0;
+    // UseState: Quando o valor mudar, quero que todos os componentes que usam esse valor sejam atualizados automaticamente.
+    // No React, o useState retorna um array com 2 posições: [valorAtual, funçãoParaAtualizarOValor]
+    // Não podemos modificar o valor diretamente, precisamos usar a função para atualizar o valor.
+    const [numero, setNumero] = useState(0); // Desestruturação de array
 
     function handleClick() {
-        const span = document.getElementById('numero');
-        if (!span) return;
-
-        numero += 1;
-        span.innerText = numero.toString();
-        console.log(numero, Date.now());
+        // É uma boa prática usar uma função e não uma atribuição direta
+        setNumero(prevState => prevState + 1);
     }
 
     return (
         <>
             <Heading>
-                Número: <span id='numero'>{numero}</span>
+                Número: <span>{numero}</span>
             </Heading>
             <button onClick={handleClick}>Aumentar</button>
             <Container>
@@ -41,18 +42,27 @@ export function App() {
                 <CountDown />
             </Container>
             <Container>
-                <form className='form' action="">
-                    <div className="formRow">
-                        <DefaultInput id='meuInput' type="text" placeholder="Digite Algo" labelText={numero.toString()} title='sdasd'/>
+                <form className='form' action=''>
+                    <div className='formRow'>
+                        <DefaultInput
+                            id='meuInput'
+                            type='text'
+                            placeholder='Digite Algo'
+                            labelText={numero.toString()}
+                            title='sdasd'
+                        />
                     </div>
-                    <div className="formRow">
+                    <div className='formRow'>
                         <p>Lorem ipsum dolor sit amet.</p>
                     </div>
-                    <div className="formRow">
+                    <div className='formRow'>
                         <Cycles />
                     </div>
-                    <div className="formRow">
-                        <DefaultButton icon={<PlayCircleIcon />} color='green'/>
+                    <div className='formRow'>
+                        <DefaultButton
+                            icon={<PlayCircleIcon />}
+                            color='green'
+                        />
                     </div>
                 </form>
             </Container>
