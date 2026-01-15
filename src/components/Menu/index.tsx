@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import style from './style.module.css';
 import { HistoryIcon, HouseIcon, SettingsIcon, SunIcon } from 'lucide-react';
 
@@ -9,8 +9,21 @@ export function Menu() {
 
     function handleThemeChange(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
         event.preventDefault(); // Não seguir o link
-        console.log('Clicado', Date.now());
+        // Atualiza o estado do tema usando a forma de função
+        setTheme(prevTheme => {
+            // 'prevTheme' é o valor atual do estado 'theme' que o React passa automaticamente
+            // Você pode chamar esse parâmetro como quiser: 'current', 'valorAtual', etc.
+            const nextTheme = prevTheme === 'dark' ? 'light' : 'dark';
+            return nextTheme; // Retorna o novo valor que o estado deve assumir
+        });
     }
+
+    useEffect(() => {
+        document.documentElement.setAttribute('data-theme', theme);
+        return () => {
+            console.log('Cleanup do useEffect do tema');
+        }
+    }, [theme]); // Executa o efeito sempre que 'theme' mudar
 
     return (
         <>
