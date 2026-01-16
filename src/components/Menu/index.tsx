@@ -19,6 +19,8 @@ export function Menu() {
         return savedTheme;
     });
 
+    // Look Up table é uma estrutura de dados que mapeia chaves a valores
+    // O objetivo das look up tables é substituir estruturas condicionais (if/else, switch) por uma forma mais simples e direta de acessar valores
     const nextIcon = {
         dark: <SunIcon />,
         light: <MoonIcon />,
