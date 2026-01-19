@@ -1,10 +1,14 @@
-import style from './style.module.css';
-import type { HomeProps } from '../../pages/Home';
+import { useTaskContext } from '../../contexts/TaskContext';
 
-export function CountDown({state}: HomeProps) {
+import style from './style.module.css';
+
+export function CountDown() {
+    const taskContext = useTaskContext();
+    console.log(taskContext);
+
     return (
         <>
-            <nav className={style.container}>{state.formattedSecondsRemaining}</nav>
+            <nav className={style.container}>00:00</nav>
         </>
     );
 }

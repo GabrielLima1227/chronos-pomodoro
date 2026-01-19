@@ -2,14 +2,12 @@ import { Cycles } from '../Cycles';
 import { PlayCircleIcon } from 'lucide-react';
 import { DefaultInput } from '../DefaultInput';
 import { DefaultButton } from '../DefaultButton';
-import type { HomeProps } from '../../pages/Home';
 
 import style from './style.module.css';
 
-export function MainForm({state}: HomeProps) {
+export function MainForm() {
     return (
         <form className='form' action=''>
-
             <div className='formRow'>
                 <DefaultInput
                     id='meuInput'
@@ -20,7 +18,7 @@ export function MainForm({state}: HomeProps) {
                 />
             </div>
             <div className='formRow'>
-                <p>Próximo intervalo é de {state.config.workTime}</p>
+                <p>Próximo intervalo é de 25 Minutos</p>
             </div>
             <div className='formRow'>
                 <Cycles />
