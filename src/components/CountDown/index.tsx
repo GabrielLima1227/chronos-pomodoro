@@ -1,11 +1,10 @@
 import style from './style.module.css';
+import type { HomeProps } from '../../pages/Home';
 
-export function CountDown() {
+export function CountDown({state}: HomeProps) {
     return (
         <>
-            <nav className={style.container}>
-                00:00
-            </nav>
+            <nav className={style.container}>{state.formattedSecondsRemaining}</nav>
         </>
     );
 }
