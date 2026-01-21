@@ -1,11 +1,54 @@
+import { useRef } from 'react';
 import { Cycles } from '../Cycles';
 import { PlayCircleIcon } from 'lucide-react';
 import { DefaultInput } from '../DefaultInput';
 import { DefaultButton } from '../DefaultButton';
+import type { TaskModel } from '../../models/TaskModel';
+import {useTaskContext} from '../../contexts/TaskContext/useTaskContext'
 
 export function MainForm() {
+    const taskNameInput = useRef<HTMLInputElement>(null);
+    const { setState } = useTaskContext();
+
+    function handleCreateNewTask(event: React.FormEvent<HTMLFormElement>) {
+        event.preventDefault();
+
+        if (taskNameInput.current === null) return;
+
+        const taskName = taskNameInput.current.value.trim();
+
+        if (!taskName) {
+            alert('Digite o nome da tarefa')
+            return;
+        }
+
+        const newTask: TaskModel = {
+            id: Date.now().toString(),
+            name: taskName,
+            duration: 1,
+            startDate: Date.now(),
+            completeDate: null,
+            interruptDate: null,
+            type: 'workTime'
+        };
+
+        const secondsRemaining = newTask.duration * 60;
+
+        setState(prevState => {
+            return {
+                ...prevState,
+                tasks: [...prevState.tasks, newTask],
+                secondsRemaining: secondsRemaining, // Conferir Depois
+                formattedSecondsRemaining: '00:00', // Conferir Depois
+                activeTask: newTask,
+                currentCycle: 1, // Conferir Depois
+                config: {...prevState.config}
+            };
+        });
+    }
+
     return (
-        <form className='form' action=''>
+        <form onSubmit={handleCreateNewTask} className='form' action=''>
             <div className='formRow'>
                 <DefaultInput
                     id='meuInput'
@@ -13,6 +56,7 @@ export function MainForm() {
                     placeholder='Digite Algo'
                     labelText='task'
                     title='sdasd'
+                    ref={taskNameInput}
                 />
             </div>
             <div className='formRow'>
