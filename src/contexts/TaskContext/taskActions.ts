@@ -13,5 +13,5 @@ export type TaskActionType = (typeof TaskActionTypes)[keyof typeof TaskActionTyp
 // Define o tipo das actions
 export type TaskActionModel =
     | { type: typeof TaskActionTypes.START_TASK; payload: TaskModel }
-    | { type: typeof TaskActionTypes.INTERRUPT_TASK; payload: TaskModel }
+    | { type: typeof TaskActionTypes.INTERRUPT_TASK}
     | { type: typeof TaskActionTypes.RESET_STATE };
