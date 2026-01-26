@@ -11,7 +11,7 @@ export function TaskContextProvider({ children }: TaskContextProviderProps) {
 
     useEffect(() => {
         console.log(state);
-    },[state]);
+    }, [state]);
 
     return (
         <TaskContext.Provider value={{ state, setState }}>

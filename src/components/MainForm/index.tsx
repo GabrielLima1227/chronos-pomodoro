@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { Cycles } from '../Cycles';
-import { PlayCircleIcon } from 'lucide-react';
+import { PlayCircleIcon, StopCircleIcon } from 'lucide-react';
 import { DefaultInput } from '../DefaultInput';
 import { DefaultButton } from '../DefaultButton';
 import { getNextCycle } from '../../utils/getNextCycle';
@@ -55,6 +55,23 @@ export function MainForm() {
         });
     }
 
+    function handleInterruptTask() {
+        setState(prevState => {
+            return {
+                ...prevState,
+                activeTask: null,
+                secondsRemaining: 0,
+                formattedSecondsRemaining: '00:00',
+                tasks: prevState.tasks.map(task => {
+                    if (prevState.activeTask && prevState.activeTask.id === task.id){
+                        return {...task, interruptDate: Date.now()};
+                    }
+                    return task;
+                })
+            };
+        });
+    }
+
     return (
         <form onSubmit={handleCreateNewTask} className='form' action=''>
             <div className='formRow'>
@@ -79,7 +96,27 @@ export function MainForm() {
             )}
 
             <div className='formRow'>
-                <DefaultButton icon={<PlayCircleIcon />} color='green' />
+                {!state.activeTask && (
+                    <DefaultButton
+                        type={'submit'}
+                        icon={<PlayCircleIcon />}
+                        color='green'
+                        aria-label='Iniciar nova tarefa'
+                        title='Iniciar nova tarefa'
+                        key='botao_submit'
+                    />
+                )}
+                {!!state.activeTask && (
+                    <DefaultButton
+                        onClick={handleInterruptTask}
+                        type={'button'}
+                        icon={<StopCircleIcon />}
+                        color='red'
+                        aria-label='Interromper tarefa atual'
+                        title='Interromper tarefa atual'
+                        key='botao_button'
+                    />
+                )}
             </div>
         </form>
     );
