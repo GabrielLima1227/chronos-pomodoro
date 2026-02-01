@@ -7,6 +7,7 @@ import {
     SunIcon,
     MoonIcon,
 } from 'lucide-react';
+import { Link } from 'react-router';
 
 type AvaliableThemes = 'dark' | 'light';
 
@@ -48,14 +49,14 @@ export function Menu() {
     return (
         <>
             <nav className={style.menu}>
-                <a
+                <Link
                     className={style.menuLink}
                     aria-label='Home'
                     title='Home'
-                    href='#'
+                    to='/'
                 >
                     <HouseIcon />
-                </a>
+                </Link>
                 <a
                     className={style.menuLink}
                     aria-label='Histórico'
