@@ -3,8 +3,13 @@ import { GenericHtml } from '../../components/GenericHtml';
 import { Heading } from '../../components/Heading';
 import { RouterLink } from '../../components/RouterLink';
 import { MainTemplate } from '../../templates/MainTemplate';
+import { useEffect } from 'react';
 
 export function AboutPomodoro() {
+    useEffect(() => {
+        document.title = 'Entenda a Técnica Pomodoro - Chronos Pomodoro';
+    }, []);
+
     return (
         <MainTemplate>
             <Container>
@@ -60,8 +65,10 @@ export function AboutPomodoro() {
                     <p>
                         Você pode configurar o tempo de foco, descanso curto e
                         descanso longo do jeito que quiser! Basta acessar a{' '}
-                        <RouterLink href='/settings'>página de configurações</RouterLink> e
-                        ajustar os minutos como preferir.
+                        <RouterLink href='/settings'>
+                            página de configurações
+                        </RouterLink>{' '}
+                        e ajustar os minutos como preferir.
                     </p>
 
                     <h3>🔁 Ciclos organizados em sequência</h3>
@@ -107,9 +114,9 @@ export function AboutPomodoro() {
                     <h3>📊 Histórico automático</h3>
                     <p>
                         Todas as suas tarefas e ciclos concluídos ficam salvos
-                        no <RouterLink href='/history'>histórico</RouterLink>, com status de
-                        completas ou interrompidas. Assim, você consegue
-                        acompanhar sua evolução ao longo do tempo.
+                        no <RouterLink href='/history'>histórico</RouterLink>,
+                        com status de completas ou interrompidas. Assim, você
+                        consegue acompanhar sua evolução ao longo do tempo.
                     </p>
 
                     <h2>Por que usar o Chronos Pomodoro?</h2>
@@ -122,8 +129,10 @@ export function AboutPomodoro() {
 
                     <p>
                         <strong>Pronto pra focar?</strong> Bora lá{' '}
-                        <RouterLink href='/'>voltar para a página inicial</RouterLink> e iniciar
-                        seus Pomodoros! 🍅🚀
+                        <RouterLink href='/'>
+                            voltar para a página inicial
+                        </RouterLink>{' '}
+                        e iniciar seus Pomodoros! 🍅🚀
                     </p>
 
                     <p>
